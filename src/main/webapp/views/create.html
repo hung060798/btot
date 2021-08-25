@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Create new Student</h2>
+  <form action="/create" method="post">
+    <table class="table">
+      <tbody>
+      <tr>
+        <td>Name</td>
+        <td>Email address</td>
+        <td>Date of birth</td>
+        <td>Address</td>
+        <td>Phone Number</td>
+        <td>Class</td>
+
+      </tr>
+      <tr th:object="${stu}">
+        <td>
+          <input th:field="*{name}">
+          <span style="color: red" th:if="${#fields.hasErrors('name')}"
+                th:errors="*{name}"></span>
+        </td>
+        <td>
+          <input th:field="*{email}">
+          <span style="color: red" th:if="${#fields.hasErrors('email')}"
+                th:errors="*{email}"></span>
+        </td>
+        <td>
+          <input type="date" th:field="*{date}">
+          <span style="color: red" th:if="${#fields.hasErrors('date')}"
+                th:errors="*{date}"></span>
+        </td>
+        <td>
+          <input th:field="*{address}">
+          <span style="color: red" th:if="${#fields.hasErrors('address')}"
+                th:errors="*{address}"></span>
+        </td>
+        <td>
+          <input th:field="*{phone}">
+          <span style="color: red" th:if="${#fields.hasErrors('phone')}"
+                th:errors="*{phone}"></span>
+        </td>
+        <td><select th:field="*{classroom}">
+          <option th:each="classroom :${classroomList}" th:value="${classroom.id}" th:text="${classroom.name}"></option>
+        </select></td>
+      </tr>
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-success">Submit</button>
+
+  </form>
+</div>
+</body>
+</html>

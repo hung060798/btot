@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Customer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Table Edit Student</h2>
+    <a href="/show" class="btn btn-success">Home</a>
+    <form method="post">
+        <table class="table">
+            <tbody>
+            <tr>
+                <td><input th:field="${student.id}" readonly></td>
+                <td><input th:field="${student.name}"></td>
+                <td><input th:field="${student.email}"></td>
+                <td><input type="date" th:field="${student.date}"></td>
+                <td><input th:field="${student.address}"></td>
+                <td><input th:field="${student.phone}"></td>
+                <td><input th:field="${student.classroom}"></td>
+            </tr>
+            </tbody>
+        </table>
+            <button type="submit" class="btn btn-success">Edit Student</button>
+    </form>
+</div>
+
+</body>
+</html>
